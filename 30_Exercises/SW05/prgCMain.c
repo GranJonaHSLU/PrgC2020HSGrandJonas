@@ -10,15 +10,17 @@ typedef enum{
 	CUBIC,
 	NCHOOSEK,
 	PRINTBINARY,
+	ARRAYTEST,
 	EXIT =99,
 }MenuItem;
 
 MenuItem PrintMainMenu(void);
 
-int NumStat (int x1, int x2);
+long int NumStat (int x1, int x2);
 long int Factorial (long int x);
 long int ComputeCubic (long int x);
 int nChooseK (int x1, int x2);
+void ArrayTest(void);
 
 
 int main(int argc, char* argv[]){
@@ -108,7 +110,16 @@ int main(int argc, char* argv[]){
 		state=MAIN_MENU;
 		break;	
 		
-			
+	case ARRAYTEST:
+		printf("\n");
+		printf("***********************************\n");
+		printf("*********** Array Test ************\n");
+		printf("***********************************\n\n");
+		
+		ArrayTest();
+		
+		state=MAIN_MENU;
+		break;	
 		
 	case EXIT:
 		printf("\n");
@@ -141,6 +152,7 @@ MenuItem PrintMainMenu(void)
 	printf("%d - Cubic\n", CUBIC);
 	printf("%d - n choose k\n", NCHOOSEK);
 	printf("%d - Binary Converter k\n", PRINTBINARY);
+	printf("%d - Array Test \n", ARRAYTEST);
 	printf("%d - Exit\n", EXIT);
 	printf("--> ");
 	scanf("%d", (int*)&selectedState);
@@ -168,7 +180,7 @@ long int Factorial( int long x)
 }
 
 
-int NumStat(int x1, int x2)
+long int NumStat(int x1, int x2)
 {
 	float value1 = 0, value2 = 0;
 	float maxValue = 0, minValue = 0;
@@ -225,7 +237,7 @@ int PrintBinary (void)
 	int rem=0;
 	int i=1;
 	
-	printf("%d\n",binary);
+	printf("%ld\n",binary);
 	
 	printf("Enter Number --> ");
 	scanf("%d", &input);
@@ -239,11 +251,30 @@ int PrintBinary (void)
 		i=i*10;
 	}
 	
-	printf("%d in binary is 0b%d\n", input, binary);
+	printf("%d in binary is 0b%ld\n", input, binary);
 
 	MenuItem selectedState = MAIN_MENU;
 	return selectedState;		
 }
 
+void PrintIntArray (int array[], int arrayLength){
+	for (int i =0; i < arrayLength; i++)
+	{
+		printf("%d", array[i]);
+	}
+	printf("\n");
+}
 
+#define INTARRAYLENGTH 6
+void ArrayTest(void){
+	int intArray[INTARRAYLENGTH]={0};
+	PrintIntArray(intArray, INTARRAYLENGTH);
+	for (int i=0; i< INTARRAYLENGTH; i++)
+	{
+		intArray[i]=i;
+	}
+	printf("\n");
+	PrintIntArray(intArray, INTARRAYLENGTH);
+	printf("\n");
+}
 
