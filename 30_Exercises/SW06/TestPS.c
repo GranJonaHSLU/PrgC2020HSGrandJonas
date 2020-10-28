@@ -59,8 +59,8 @@ int main(int argc, char *argv[]){
   //==================== Aufgabe 5 ====================
   PrintTitle(5);
 
-  // PrintTime(myDataPoints[0].timeStamp);
-  // PrintTime(myDataPoints[1].timeStamp);
+  PrintTime(myDataPoints[0].timeStamp);
+  PrintTime(myDataPoints[1].timeStamp);
 
 
   //PrintDataPoints(myDataPoints, numberOfPoints);
@@ -172,4 +172,4 @@ void PrintTitle(int numberOfTask){
   }
   printf("\n");
   return;
-}s
+}
